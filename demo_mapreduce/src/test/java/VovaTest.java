@@ -24,4 +24,10 @@ public class VovaTest {
 
 
     }
+    
+    @Test 
+    public void fun2(){
+        System.out.println("12345".substring(0, 2));
+    
+    }
 }
