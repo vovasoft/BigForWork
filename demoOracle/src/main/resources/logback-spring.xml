@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 启用每隔60s读取该文件，刷新配置信息 -->
+<configuration scan="true" scanPeriod="60000">
+	<!-- 引入公共配置：ip、端口号、应用名称 -->
+	<include resource="cn/com/yusys/yusp/commons/log/common/logback/common.xml" />
+	<!-- 引入监控的日志配置 -->
+	<include resource="cn/com/yusys/yusp/commons/log/common/logback/monitor.xml" />
+	<!--
+	引入非JSON日志配置，相当于控制台日志输出到文件
+	应用日志=框架日志+业务日志+SQL日志，在应用日志中的SQL日志为非json格式（其日志消息为JSON）
+	框架日志和业务日志会增加系统负担，默认关闭
+	如需自定义，请删除
+	-->
+	<include resource="cn/com/yusys/yusp/commons/log/common/logback/app.xml" />
+	<!-- 引入控制台日志配置，如需自定义，请删除 -->
+	<include resource="cn/com/yusys/yusp/commons/log/common/logback/console.xml" />
+</configuration>

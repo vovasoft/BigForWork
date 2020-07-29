@@ -1,0 +1,25 @@
+# 数据库配置，不使用数据库时请删除以下配置
+spring: 
+    datasource: 
+        driver-class-name: oracle.jdbc.driver.OracleDriver  # 数据库驱动类
+        type: com.zaxxer.hikari.HikariDataSource            # datasource使用的连接池类型
+        url: jdbc:oracle:thin:@localhost:1521:ycorcl        # 数据库连接的url
+        username: yusp # 数据库连接的用户名
+        password: yusp # 数据库连接的密码
+# 数据库配置，不使用数据库时请删除以上配置
+# eureka配置
+eureka: 
+    client: 
+        service-url: 
+            defaultZone: http://localhost:8761/eureka/ # 微服务注册中心地址
+#########################
+# mybatis  配置
+#########################
+mybatis: 
+    mapperLocations: classpath*:mapper/**/*.xml # mybatis对应的xml文件路径
+pagehelper:
+    reasonable: true # 分页插件
+# License 配置信息
+license:
+    licenseContext: <?xml version="1.0" encoding="UTF-8"?><license build-time="Tue Jan 21 15:37:13 CST 2020" validate-code="05554B3DB98C5312B3DD287DA8A66086"><element name="contract_code">YTEC-2019-2508-B</element><element name="customer_name">统一服务平台2019二阶段推广维护项目</element><element name="license_code">0000014935</element><element name="product_code">0000001122</element><element name="product_name_zh-cn">宇信科技基于微服务框架统一开发平台</element><element name="product_name_en-us">YUSP</element><element name="version_major">1</element><element name="version_sub">0</element><element name="version_publish">1</element><element name="complie_date">2018-03-20</element><element name="license_type">内部试用许可证</element><element name="license_start_time">2020-01-20</element><element name="license_end_time">2020-06-19</element></license>
+    licenseModel: TRIAL
