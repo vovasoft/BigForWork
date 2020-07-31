@@ -1,0 +1,19 @@
+
+# 数据库配置，不使用数据库时请删除以下配置
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver  # 数据库驱动类
+    type: com.zaxxer.hikari.HikariDataSource            # datasource使用的连接池类型
+    url: jdbc:oracle:thin:@127.0.0.1:49161:XE        # 数据库连接的url
+    username: vova # 数据库连接的用户名
+    password: 123 # 数据库连接的密码
+  application:
+    name: starter  #应用名称
+
+# mybatis  配置
+#########################
+mybatis:
+  mapperLocations: classpath*:mapper/**/*.xml # mybatis对应的xml文件路径
+
+server:
+  port: 6013 #应用启动端口
