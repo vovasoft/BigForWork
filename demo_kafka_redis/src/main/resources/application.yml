@@ -1,0 +1,68 @@
+#########################
+#Spring Boot相关配置
+#########################
+spring:
+  #jackson配置
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true #jackson格式化输出
+  #数据库配置
+  datasource:
+    hikari:
+      # 空闲时最小连接数
+      minimum-idle: 10
+      # 连接池最大连接数
+      maximum-pool-size: 200
+      data-source-properties:
+        # 是否启用Prep缓存
+        cachePrepStmts: true
+        # Prep缓存大小
+        prepStmtCacheSize: 250
+        # Prep缓存sql限制大小
+        prepStmtCacheSqlLimit: 2048
+        # 是否用服务缓存Prep
+        useServerPrepStmts: true
+
+    # 使用MySQL数据库
+    driver-class-name: com.mysql.jdbc.Driver
+    # MySQL数据库连接URL
+    url: jdbc:mysql://192.168.45.24:3306/icp-poc?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&allowMultiQueries=true&useSSL=false
+    # 数据库连接用户名
+    username: root
+    # 数据库连接密码
+    password: admin
+
+  #spring国际化配置
+  messages:
+    cache-duration: 1
+  #
+  #如不使用redis，请将以下配置删除
+  redis:
+    database: 0 #Redis默认情况下有16个分片，这里配置具体使用的分片，默认是0
+    host: 192.168.45.24 #Redis的地址
+    port: 6379 #Redis的端口
+    password: 123456 #Redis的密码
+    timeout: 60000 #连接超时时间（毫秒）
+
+  cache:
+    type: redis #spring cache类型
+  kafka:
+    bootstrap-servers: 192.168.45.24:9092
+    consumer:
+      group-id: demo-1
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      auto-offset-reset: earliest
+      max-poll-records: 100
+    listener:
+      ack-mode: record
+      type: single
+      concurrency: 2
+    producer:
+      retries: 3
+      batch-size: 1048576
+      buffer-memory: 67108864
+      acks: all
+      compression-type: gzip
+server:
+  port: 6013
