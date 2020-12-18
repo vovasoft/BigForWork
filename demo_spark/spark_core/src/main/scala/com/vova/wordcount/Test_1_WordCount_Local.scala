@@ -1,4 +1,4 @@
-package com.vova
+package com.vova.wordcount
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
