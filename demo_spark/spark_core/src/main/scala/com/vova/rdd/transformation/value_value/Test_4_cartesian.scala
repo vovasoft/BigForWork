@@ -1,6 +1,6 @@
-package com.vova.rdd.value_value
+package com.vova.rdd.transformation.value_value
 
-import com.vova.rdd.valuec.BaseSpark
+import com.vova.rdd.transformation.value.BaseSpark
 import org.apache.spark.rdd.RDD
 
 /**
@@ -10,17 +10,17 @@ import org.apache.spark.rdd.RDD
  * @version Create in 3:56 下午 2020/12/18
  */
 
-object Test_2_subtract extends BaseSpark {
+object Test_4_cartesian extends BaseSpark {
 
     def main(args: Array[String]): Unit = {
 
         val arr1: Array[Int] = Array(30, 50, 70, 60, 10, 20)
-        val arr2: Array[Int] = Array(22, 33, 70, 44, 10, 20)
+        val arr2: Array[Int] = Array(2,3)
 
         val rdd1: RDD[Int] = sc.makeRDD(arr1)
         val rdd2: RDD[Int] = sc.makeRDD(arr2)
 
-        val rddRes: RDD[Int] = rdd1.subtract(rdd2)
+        val rddRes: RDD[(Int,Int)] = rdd1.cartesian(rdd2)
 
         rddRes.collect().foreach(println)
 

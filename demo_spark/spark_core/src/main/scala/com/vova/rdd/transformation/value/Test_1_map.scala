@@ -1,4 +1,4 @@
-package com.vova.rdd.valuec
+package com.vova.rdd.transformation.value
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}

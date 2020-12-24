@@ -1,6 +1,6 @@
-package com.vova.rdd.value_value
+package com.vova.rdd.transformation.value_value
 
-import com.vova.rdd.valuec.BaseSpark
+import com.vova.rdd.transformation.value.BaseSpark
 import org.apache.spark.rdd.RDD
 
 /**

@@ -1,6 +1,6 @@
-package com.vova.rdd.valuec
+package com.vova.rdd.transformation.value
 
-import com.vova.rdd.valuec.Test_2_mapPartitions.sc
+import com.vova.rdd.transformation.value.Test_2_mapPartitions.sc
 import org.apache.spark.rdd.RDD
 /**
  * 将每一个分区的元素合并成一个数组，形成新的 RDD 类型是RDD[Array[T]]

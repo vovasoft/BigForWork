@@ -1,28 +1,20 @@
-package com.vova.rdd.valuec
+package com.vova.rdd.transformation.value
 
+import com.vova.rdd.transformation.value.Test_2_mapPartitions.sc
 import org.apache.spark.rdd.RDD
 
-/**
- * 类似于map(func), 但是是独立在每个分区上运行
- * @author WangYang - vova
- * @version Create in 3:56 下午 2020/12/18
- */
-
-object Test_2_mapPartitions extends BaseSpark {
+object Test_3_mapPartitionsWithIndex {
 
     def main(args: Array[String]): Unit = {
-
         val arr1: Array[Int] = Array(30, 50, 70, 60, 10, 20)
         val rdd: RDD[Int] = sc.makeRDD(arr1)
-        val rdd2: RDD[Int] = rdd.mapPartitions(t=> t.map(_ * 2), false)
+        val rdd2: RDD[(Int,Int)] = rdd.mapPartitionsWithIndex((index, t) => t.map((_ ,index)), false)
 
         println("getNumPartitions:"+rdd2.getNumPartitions)
         rdd2.partitions.foreach(println)
 
         val ints = rdd2.collect()
+        println()
         ints.foreach(println)
     }
-
-
-
 }

@@ -1,6 +1,6 @@
-package com.vova.rdd.valuec
+package com.vova.rdd.transformation.value
 
-import com.vova.rdd.valuec.Test_2_mapPartitions.sc
+import com.vova.rdd.transformation.value.Test_2_mapPartitions.sc
 import org.apache.spark.rdd.RDD
 
 /**
